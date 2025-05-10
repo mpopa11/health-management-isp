@@ -42,4 +42,17 @@ public class InputHandler {
         }
         return line;
 	}
+	
+	public static int alegereActiuneMeniu(int lower, int upper) {
+		int choice = -1;
+		do {
+		String line = scanner.nextLine().trim();
+        choice = Integer.parseInt(line);
+        if (choice < lower || choice > upper) {
+            System.out.println("Optiune invalida. Alege un număr intre " + lower + " si " + upper);
+            choice = -1; 
+        }
+    } while (choice == -1);
+		return choice;
+	}
 }
