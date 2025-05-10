@@ -45,7 +45,6 @@ public class Meniu {
     public void showMeniuStudent() {
         System.out.println("--------------------------------------");
         System.out.println("1. Log out");
-        System.out.println("2. Vezi profil");
         System.out.println("--------------------------------------");
     }
 
