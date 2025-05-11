@@ -1,5 +1,7 @@
 package health_management;
 
+import java.util.Objects;
+
 public class Utilizator {
 	private String nume;
 	private String prenume;
@@ -48,5 +50,18 @@ public class Utilizator {
 	public void setParola(String parola) {
 		this.parola = parola;
 	}
+	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Utilizator)) return false;
+        Utilizator that = (Utilizator) o;
+        return Objects.equals(this.getUsername(), that.getUsername());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUsername());
+    }
 	
 }

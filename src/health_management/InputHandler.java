@@ -15,20 +15,71 @@ public class InputHandler {
 		        "[A-Za-z\\d.@$!%*?&]+" +  
 		        "$"
 		    );
+	
 	private static Scanner scanner = new Scanner(System.in);
 	 
 	
 	public static String validare(String tip, Pattern pattern) {
-        String line;
-        while (true) {
-            System.out.print("Introduceti " + tip + ": ");
-            line = scanner.nextLine().trim();
-            if (pattern.matcher(line).matches()) {
-                return line;
-            }
-            System.out.println("Format invalid pentru " + tip + ".");
-        }
+	    String line;
+	    while (true) {
+	        System.out.print("Introduceti " + tip + ": ");
+	        line = scanner.nextLine().trim();
+
+	        if (!pattern.matcher(line).matches()) {
+	            System.out.println("Format invalid pentru " + tip + ".");
+	            continue;
+	        }
+
+	        if ("username".equalsIgnoreCase(tip)) {
+	            boolean existsInStudents   = StudentRegistry.get(line) != null;
+	            boolean existsInConsilieri = ConsilierRegistry.get(line) != null;
+	            if (existsInStudents || existsInConsilieri) {
+	                System.out.println("Username deja folosit. Alegeti alt username.");
+	                continue;
+	            }
+	        }
+	        return line;
+	    }
 	}
+
+
+	public static Utilizator authenticate() {
+        Utilizator user;
+        String username;
+        while (true) {
+            System.out.print("Introduceti username: ");
+            username = scanner.nextLine().trim();
+            if (!patternUsername.matcher(username).matches()) {
+                System.out.println("Format invalid pentru username.");
+                continue;
+            }
+            user = StudentRegistry.get(username);
+            if (user == null) user = ConsilierRegistry.get(username);
+            if (user == null) {
+                System.out.println("Username necunoscut. Incearca din nou.");
+                continue;
+            }
+            break;
+        }
+        
+        while (true) {
+            System.out.print("Introduceti parola: ");
+            String parola = scanner.nextLine().trim();
+            if (!patternParola.matcher(parola).matches()) {
+                System.out.println("Format invalid pentru parola.");
+                continue;
+            }
+            if (!user.getParola().equals(parola)) {
+                System.out.println("Parola incorecta. Incearca din nou.");
+                continue;
+            }
+            break;
+        }
+
+        return user;
+    }
+
+
 	
 	public static String alegereTipCont() {
 		String line;
@@ -55,4 +106,5 @@ public class InputHandler {
     } while (choice == -1);
 		return choice;
 	}
+	
 }
