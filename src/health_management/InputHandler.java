@@ -107,4 +107,8 @@ public class InputHandler {
 		return choice;
 	}
 	
+	public static Scanner getScanner() {
+		return scanner;
+	}
+	
 }
