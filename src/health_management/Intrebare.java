@@ -11,9 +11,12 @@ public class Intrebare {
 	// puncteRaspuns
 	
 	public Intrebare() {
-		Scanner scanner = InputHandler.getScanner();
 		this.raspunsuri = new ArrayList<String>();
 		this.puncte = new ArrayList<Integer>();
+	}
+	
+	public void creareIntrebare() {
+		Scanner scanner = InputHandler.getScanner();
 		String ans;
 
 		System.out.println("--------------------------------------");
@@ -48,5 +51,13 @@ public class Intrebare {
 			System.out.println((i+1) + ". " + this.raspunsuri.get(i));
 		}
 		System.out.println("--------------------------------------");
+	}
+	
+	public Integer obtinePunctaj(Integer raspuns) {
+		return this.puncte.get(raspuns);
+	}
+	
+	public int numarRaspunsuri() {
+		return this.raspunsuri.size();
 	}
 }

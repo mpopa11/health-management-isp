@@ -7,7 +7,9 @@ public class Recomandare {
 	private float pragInferior;
 	private float pragSuperior;
 	
-	public Recomandare() {
+	public Recomandare() {}
+	
+	public void creareRecomandare() {
 		Scanner scanner = InputHandler.getScanner();
 		Float pragInf = null;
 		Float pragSup = null;
