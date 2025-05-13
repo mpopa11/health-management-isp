@@ -41,15 +41,18 @@ public class Meniu {
         while (utilizatorCurent != null) {
             if (utilizatorCurent instanceof Student) {
                 showMeniuStudent();
-                int choice = InputHandler.alegereActiuneMeniu(1, 2);
+                int choice = InputHandler.alegereActiuneMeniu(1, 5);
                 switch (choice) {
-                    case 1 -> utilizatorCurent = null;
-                    case 2 -> {}  
+                    case 1 -> {}
+                    case 2 -> {} 
+                    case 3 -> {}
+                    case 4 -> {}
+                    case 5-> {utilizatorCurent = null;}
                 }
             }
             else if (utilizatorCurent instanceof Consilier) {
                 showMeniuConsilier();
-                int choice = InputHandler.alegereActiuneMeniu(1, 3);
+                int choice = InputHandler.alegereActiuneMeniu(1, 4);
                 switch (choice) {
                     case 1 -> ((Consilier) utilizatorCurent).creareFormular(); 
                     case 2 -> {}  
@@ -104,15 +107,19 @@ public class Meniu {
 
     public void showMeniuStudent() {
         System.out.println("--------------------------------------");
-        System.out.println("1. Log out");
+        System.out.println("1. Completeaza Formular");
+        System.out.println("2. Verificare Istoric Formulare");
+        System.out.println("3. Statistici");
+        System.out.println("4. Vizualizare Recomandari");
+        System.out.println("5. Log out");
         System.out.println("--------------------------------------");
     }
     
     public void showMeniuConsilier() {
         System.out.println("--------------------------------------");
         System.out.println("1. Creaza formular");
-        System.out.println("2. ---");
-        System.out.println("3. ---");
+        System.out.println("2. Vizualizare Formulare");
+        System.out.println("3. Statistici");
         System.out.println("4. Log out");
         System.out.println("--------------------------------------");
     }
