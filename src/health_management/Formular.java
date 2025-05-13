@@ -20,7 +20,7 @@ public class Formular {
 		this.recomandari = new ArrayList<Recomandare>();
 	}
 
-	public void creareFormular() {
+	public void creare() {
 		Scanner scanner = InputHandler.getScanner();
 		int menuAnswer = 0;
 		

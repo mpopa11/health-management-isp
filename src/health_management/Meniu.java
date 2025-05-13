@@ -51,9 +51,10 @@ public class Meniu {
                 showMeniuConsilier();
                 int choice = InputHandler.alegereActiuneMeniu(1, 3);
                 switch (choice) {
-                    case 1 -> utilizatorCurent = null;
+                    case 1 -> ((Consilier) utilizatorCurent).creareFormular(); 
                     case 2 -> {}  
                     case 3 -> {}
+                    case 4 -> utilizatorCurent = null;
                 }
             }
             else {
@@ -109,8 +110,10 @@ public class Meniu {
     
     public void showMeniuConsilier() {
         System.out.println("--------------------------------------");
-        System.out.println("1. Log out");
-        System.out.println("1. Log out");
+        System.out.println("1. Creaza formular");
+        System.out.println("2. ---");
+        System.out.println("3. ---");
+        System.out.println("4. Log out");
         System.out.println("--------------------------------------");
     }
     

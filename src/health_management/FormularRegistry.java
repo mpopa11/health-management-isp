@@ -9,6 +9,7 @@ public class FormularRegistry {
 
 	public static Formular create(String usernameAutor) {
         Formular formular = new Formular(usernameAutor);
+        formular.creare();
         formulare.put(formular.getId(), formular);
         return formular;
     }
