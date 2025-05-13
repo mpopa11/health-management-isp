@@ -43,7 +43,11 @@ public class Meniu {
                 showMeniuStudent();
                 int choice = InputHandler.alegereActiuneMeniu(1, 5);
                 switch (choice) {
-                    case 1 -> {}
+                    case 1 -> {
+	                    	FormularRegistry.showFormulare();
+	                    	int id = InputHandler.alegereActiuneMeniu(1, FormularRegistry.getSize()) - 1;
+	                    	((Student) utilizatorCurent).completareFormular(id);
+                    	}
                     case 2 -> {} 
                     case 3 -> {}
                     case 4 -> {}
@@ -69,6 +73,7 @@ public class Meniu {
 
     public static void main(String[] args) {
         Meniu meniu = new Meniu();
+        Meniu.init();
 
         while (true) {
             meniu.showMeniuInitial();
@@ -84,6 +89,11 @@ public class Meniu {
                 }
             }
         }
+    }
+    
+    public static void init() {
+    	ConsilierRegistry.getOrCreate("Consilier", "Ana", "anaa", "Parola1.");
+    	StudentRegistry.getOrCreate("Mihai","Mihai", "Mihai", "Parola1.");
     }
     
     public void alegeFacultate() {

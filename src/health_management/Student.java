@@ -9,4 +9,11 @@ public class Student extends Utilizator {
 		super(nume, prenume, username, parola);
 		this.formulareCompletate = new ArrayList<>();
 	}
+	
+	public void completareFormular(int idFormular) {
+		ArrayList<Integer> raspunsuri = FormularRegistry.get(idFormular).completareFormular();
+		float scor = FormularRegistry.get(idFormular).calculareScor(raspunsuri);
+		
+		formulareCompletate.add(new FormularCompletat(idFormular, raspunsuri, scor));
+	}
 }

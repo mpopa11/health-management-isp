@@ -83,7 +83,7 @@ public class Formular {
 		return suma / this.intrebari.size();
 	}
 	
-	public void completareFormular() {
+	public ArrayList<Integer> completareFormular() {
 		ArrayList<Integer> raspunsuri = new ArrayList<Integer>();
 		
 		for (Intrebare intrebare : this.intrebari) {
@@ -93,9 +93,15 @@ public class Formular {
 		}
 		float scor = this.calculareScor(raspunsuri);
 		System.out.println("SCOR: " + scor);
+		
+		return raspunsuri;
 	}
 	
 	public int getId() {
 		return this.id;
+	}
+	
+	public String getTitlu() {
+		return this.titlu;
 	}
 }

@@ -17,4 +17,21 @@ public class FormularRegistry {
 	public static Formular get(Integer id) {
 		return formulare.get(id);
 	}
+	
+	 public static void showFormulare() {
+	        if (formulare.isEmpty()) {
+	            System.out.println("Nu exista formulare disponibile.");
+	            return;
+	        }
+
+	        System.out.println("Formulare:");
+	        for (Formular formular : formulare.values()) {
+	            System.out.println(1 + formular.getId()
+	                + ". " + formular.getTitlu());
+	        }
+	    }
+	 
+	 public static int getSize() {
+		 return formulare.size();
+	 }
 }
