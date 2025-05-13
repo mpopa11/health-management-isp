@@ -27,7 +27,7 @@ public class Student extends Utilizator {
 		System.out.println("Formulare completate:");
 		for (int i = formulareCompletate.size() - 1; i >= 0; i--) {
 			FormularCompletat formular = formulareCompletate.get(i);
-			System.out.println((i + 1) + ". Formular ID: " + formular.getIdFormular() + ", Scor: " + formular.getScor() + ", Data: " + formular.getTimestamp());
+			System.out.println((i + 1) + ". FormularID: " + formular.getIdFormular() + ", Titlu: " + FormularRegistry.get(formular.getIdFormular()).getTitlu() + " Scor: " + formular.getScor() + ", Data: " + formular.getTimestamp());
 		}
 		
 		System.out.println("--------------------------------------");
@@ -37,15 +37,18 @@ public class Student extends Utilizator {
 		
 		if (optiune == 1) {
 			System.out.println("--------------------------------------");
-			System.out.println("Introduceti ID-ul formularului pentru detalii suplimentare:");
+			System.out.println("Introduceti numarul formularului pentru detalii suplimentare:");
 			System.out.println("--------------------------------------");
-			int idFormular = InputHandler.alegereActiuneMeniu(1, FormularRegistry.getSize());
+			int numarFormular = InputHandler.alegereActiuneMeniu(1, formulareCompletate.size());
 			System.out.println("--------------------------------------");
 			
-			FormularCompletat formular = formulareCompletate.get(idFormular - 1);
+			FormularCompletat formular = formulareCompletate.get(numarFormular - 1);
+			int idFormular = formular.getIdFormular();
 			ArrayList<Intrebare> intrebari =  FormularRegistry.get(idFormular).getIntrebari();
 			
-			System.out.println("Formular ID: " + formular.getIdFormular());
+			System.out.println("FormularID: " + idFormular);
+			System.out.println("Titlu: " + FormularRegistry.get(idFormular).getTitlu());
+			System.out.println("Autor: " + FormularRegistry.get(idFormular).getAutor());
 			System.out.println("Scor: " + formular.getScor());
 			System.out.println("Data: " + formular.getTimestamp());
 			System.out.println("Intrebari si raspunsuri:");
@@ -53,7 +56,7 @@ public class Student extends Utilizator {
 				System.out.println("--------------------------------------");
 				System.out.println("Intrebare " + (i + 1) + ":");
 				intrebari.get(i).afisare();
-				System.out.println("Raspunsul tau: " + (formular.getRaspunsuri().get(i) + 1));
+				System.out.println("Raspunsul tau: " + (formular.getRaspunsuri().get(i)+1));
 			}
 		} else {
 			System.out.println("Reveniti la meniu.");

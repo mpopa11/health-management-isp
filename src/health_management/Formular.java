@@ -116,4 +116,8 @@ public class Formular {
 	public ArrayList<Intrebare> getIntrebari() {
 		return this.intrebari;
 	}
+	
+	public String getAutor() {
+		return this.autor;
+	}
 }

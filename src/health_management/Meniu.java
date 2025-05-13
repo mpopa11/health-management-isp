@@ -48,7 +48,9 @@ public class Meniu {
 	                    	int id = InputHandler.alegereActiuneMeniu(1, FormularRegistry.getSize()) - 1;
 	                    	((Student) utilizatorCurent).completareFormular(id);
                     	}
-                    case 2 -> {} 
+                    case 2 -> {
+                    	((Student)utilizatorCurent).afisareIstoricFormulare();
+                    } 
                     case 3 -> {}
                     case 4 -> {}
                     case 5-> {utilizatorCurent = null;}
