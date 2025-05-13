@@ -25,4 +25,20 @@ public class FormularCompletat {
         System.out.println("  timestamp: " + timestamp);
         System.out.println("  raspunsuri: " + raspunsuri);
     }
+	
+	public int getIdFormular() {
+		return idFormular;
+	}
+	
+	public float getScor() {
+		return scor;
+	}
+	
+	public String getTimestamp() {
+		return timestamp;
+	}
+	
+	public ArrayList<Integer> getRaspunsuri() {
+		return raspunsuri;
+	}
 }

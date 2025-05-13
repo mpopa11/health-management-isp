@@ -112,4 +112,8 @@ public class Formular {
 	public String getTitlu() {
 		return this.titlu;
 	}
+	
+	public ArrayList<Intrebare> getIntrebari() {
+		return this.intrebari;
+	}
 }

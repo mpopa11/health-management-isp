@@ -16,4 +16,49 @@ public class Student extends Utilizator {
 		
 		formulareCompletate.add(new FormularCompletat(idFormular, raspunsuri, scor));
 	}
+	
+	
+	public void afisareIstoricFormulare() {
+		if (formulareCompletate.isEmpty()) {
+			System.out.println("Nu ai completat niciun formular.");
+			return;
+		}
+		
+		System.out.println("Formulare completate:");
+		for (int i = formulareCompletate.size() - 1; i >= 0; i--) {
+			FormularCompletat formular = formulareCompletate.get(i);
+			System.out.println((i + 1) + ". Formular ID: " + formular.getIdFormular() + ", Scor: " + formular.getScor() + ", Data: " + formular.getTimestamp());
+		}
+		
+		System.out.println("--------------------------------------");
+		System.out.println("Doriti detalii suplimentare? \n[1] - Da \n[2] - Nu");
+		System.out.println("--------------------------------------");
+		int optiune = InputHandler.alegereActiuneMeniu(1, 2);
+		
+		if (optiune == 1) {
+			System.out.println("--------------------------------------");
+			System.out.println("Introduceti ID-ul formularului pentru detalii suplimentare:");
+			System.out.println("--------------------------------------");
+			int idFormular = InputHandler.alegereActiuneMeniu(1, FormularRegistry.getSize());
+			System.out.println("--------------------------------------");
+			
+			FormularCompletat formular = formulareCompletate.get(idFormular - 1);
+			ArrayList<Intrebare> intrebari =  FormularRegistry.get(idFormular).getIntrebari();
+			
+			System.out.println("Formular ID: " + formular.getIdFormular());
+			System.out.println("Scor: " + formular.getScor());
+			System.out.println("Data: " + formular.getTimestamp());
+			System.out.println("Intrebari si raspunsuri:");
+			for (int i = 0; i < intrebari.size(); i++) {
+				System.out.println("--------------------------------------");
+				System.out.println("Intrebare " + (i + 1) + ":");
+				intrebari.get(i).afisare();
+				System.out.println("Raspunsul tau: " + (formular.getRaspunsuri().get(i) + 1));
+			}
+		} else {
+			System.out.println("Reveniti la meniu.");
+			
+		}
+	}
 }
+
