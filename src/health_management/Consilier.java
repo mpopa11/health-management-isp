@@ -13,6 +13,6 @@ public class Consilier extends Utilizator {
 	
 	public void creareFormular() {
 		Formular formular = FormularRegistry.create(this.getUsername());
-		this.formulareCreate.add(formular.getId());
+		this.formulareCreate.add(formular.getId()); 
 	}
 }

@@ -57,6 +57,16 @@ public class Intrebare {
 		return this.puncte.get(raspuns);
 	}
 	
+	public int obtinePunctajMaxim() {
+		int max = Integer.MIN_VALUE;
+	    for (int p : this.puncte) {
+	        if (p > max) {
+	            max = p;
+	        }
+	    }
+	    return max;
+	}
+	
 	public int numarRaspunsuri() {
 		return this.raspunsuri.size();
 	}

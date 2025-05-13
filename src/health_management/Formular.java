@@ -72,15 +72,23 @@ public class Formular {
         System.out.println("--------------------------------------");
 	}
 	
-	public float calculareScor(ArrayList<Integer> raspunsuri) {
-		float suma = 0.0f;
+	public int calculareScor(ArrayList<Integer> raspunsuri) {
+		int suma = 0;
 		
 		for(int idx = 0; idx < this.intrebari.size(); idx++) {
 			Intrebare intrebareCurenta = this.intrebari.get(idx);
 			suma += intrebareCurenta.obtinePunctaj(raspunsuri.get(idx));
 		}
 		
-		return suma / this.intrebari.size();
+		return suma;
+	}
+	
+	public int calculareScorMaxim() {
+		int suma = 0;
+		for (Intrebare intrebare : this.intrebari) {
+			suma += intrebare.obtinePunctajMaxim();
+		}
+		return suma;
 	}
 	
 	public ArrayList<Integer> completareFormular() {
@@ -91,8 +99,8 @@ public class Formular {
 			Integer raspuns = InputHandler.alegereActiuneMeniu(1, intrebare.numarRaspunsuri());
 			raspunsuri.add(raspuns-1);
 		}
-		float scor = this.calculareScor(raspunsuri);
-		System.out.println("SCOR: " + scor);
+		int scor = this.calculareScor(raspunsuri);
+		System.out.println("SCOR: " + scor + "/" + this.calculareScorMaxim());
 		
 		return raspunsuri;
 	}
