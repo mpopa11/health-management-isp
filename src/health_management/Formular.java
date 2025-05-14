@@ -116,6 +116,10 @@ public class Formular {
 	
 	public void stergeIntrebare() {
 		do {
+			if (this.intrebari.size() == 0) {
+				System.out.println("Nu exista intrebari!");
+				break;
+			}
 			int idx = 1;
 	 		for (Intrebare intrebare : this.intrebari) {
 				System.out.println(idx +  ". " + intrebare.getTextIntrebare());
@@ -130,6 +134,10 @@ public class Formular {
 	
 	public void stergeRecomandare() {
 		do {
+			if (this.recomandari.size() == 0) {
+				System.out.println("Nu exista recomandari!");
+				break;
+			}
 			int idx = 1;
 	 		for (Recomandare recomandare : this.recomandari) {
 				System.out.println(idx +  ". " + recomandare.getTextRecomandare());

@@ -72,7 +72,23 @@ public class Meniu {
                 int choice = InputHandler.alegereActiuneMeniu(1, 4);
                 switch (choice) {
                     case 1 -> ((Consilier) utilizatorCurent).creareFormular(); 
-                    case 2 -> {FormularRegistry.showFormulareOfUser(utilizatorCurent.getUsername());}
+                    case 2 -> {
+                    	FormularRegistry.showFormulareOfUser(utilizatorCurent.getUsername());
+                    	
+                    	if (FormularRegistry.getSizeFormulareUser(utilizatorCurent.getUsername()) > 0) {
+                    		System.out.println("Alegeti un formular pentru detalii.\nIntoruceti 0 pentru a naviga inapoi");
+                    		int formChoice = InputHandler.alegereActiuneMeniu(0, FormularRegistry.getSize());
+                    		
+                    		if (formChoice == 0) {
+                    			break;
+                    		} else {
+                        		List<Integer> keys = new ArrayList<>(FormularRegistry.getFormularePersonale(utilizatorCurent.getUsername()).keySet());
+                        		int id = keys.get(formChoice - 1);
+                        		((Consilier) utilizatorCurent).modificaFormular(id);
+                        		
+                    		}
+                    	}
+                    }
                     case 3 -> {
                     	FormularRegistry.showFormulareOfUser(utilizatorCurent.getUsername());
                     	if (FormularRegistry.getSizeFormulareUser(utilizatorCurent.getUsername()) > 0) {

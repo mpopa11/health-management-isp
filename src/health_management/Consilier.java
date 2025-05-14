@@ -19,7 +19,9 @@ public class Consilier extends Utilizator {
 		this.formulareCreate.add(formular.getId()); 
 	}
 	
-	public void modificaFormular(Formular formular) {
+	public void modificaFormular(int idFormular) {
+		Formular formular = FormularRegistry.get(idFormular);
+		
 		int answer;
 		
 		do {
