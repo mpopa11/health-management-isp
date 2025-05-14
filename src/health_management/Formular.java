@@ -33,24 +33,8 @@ public class Formular {
 			menuAnswer = InputHandler.alegereActiuneMeniu(1, 3);
 			
 			switch (menuAnswer) {
-				case 1: {
-					do {
-						Intrebare intrebare = new Intrebare();
-						intrebare.creareIntrebare();
-						this.intrebari.add(intrebare);
-						System.out.print("Doriti sa mai introduceti o alta intrebare? [y/n]: ");
-					} while (scanner.nextLine().trim().toLowerCase().equals("y"));
-					break;
-				}
-				case 2: {
-					do { 
-						Recomandare recomandare = new Recomandare();
-						recomandare.creareRecomandare();
-						this.recomandari.add(recomandare);
-						System.out.print("Doriti sa mai introduceti o alta recomandare? [y/n]: ");
-					} while (scanner.nextLine().trim().toLowerCase().equals("y"));
-					break;
-				}
+				case 1 -> this.adaugaIntrebare();
+				case 2 -> this.adaugaRecomandare();
 			}
 		}
 		System.out.println("--------------------------------------");
@@ -110,6 +94,52 @@ public class Formular {
 		}
 		
 		return raspunsuri;
+	}
+	
+	public void adaugaIntrebare() {
+		do {
+			Intrebare intrebare = new Intrebare();
+			intrebare.creareIntrebare();
+			this.intrebari.add(intrebare);
+			System.out.print("Doriti sa mai introduceti o alta intrebare? [y/n]: ");
+		} while (InputHandler.getScanner().nextLine().trim().toLowerCase().equals("y"));
+	}
+	
+	public void adaugaRecomandare() {
+		do { 
+			Recomandare recomandare = new Recomandare();
+			recomandare.creareRecomandare();
+			this.recomandari.add(recomandare);
+			System.out.print("Doriti sa mai introduceti o alta recomandare? [y/n]: ");
+		} while (InputHandler.getScanner().nextLine().trim().toLowerCase().equals("y"));
+	}
+	
+	public void stergeIntrebare() {
+		do {
+			int idx = 1;
+	 		for (Intrebare intrebare : this.intrebari) {
+				System.out.println(idx +  ". " + intrebare.getTextIntrebare());
+			}
+	 		
+	 		int answer = InputHandler.alegereActiuneMeniu(1, this.intrebari.size()) - 1;
+	 		this.intrebari.remove(answer);
+	 		
+	 		System.out.print("Doriti sa mai stergeti o alta intrebare? [y/n]: ");
+		} while (InputHandler.getScanner().nextLine().trim().toLowerCase().equals("y"));
+	}
+	
+	public void stergeRecomandare() {
+		do {
+			int idx = 1;
+	 		for (Recomandare recomandare : this.recomandari) {
+				System.out.println(idx +  ". " + recomandare.getTextRecomandare());
+			}
+	 		
+	 		int answer = InputHandler.alegereActiuneMeniu(1, this.recomandari.size()) - 1;
+	 		this.recomandari.remove(answer);
+	 		
+	 		System.out.print("Doriti sa mai stergeti o alta recomandare? [y/n]: ");
+		} while (InputHandler.getScanner().nextLine().trim().toLowerCase().equals("y"));
 	}
 	
 	public int getId() {

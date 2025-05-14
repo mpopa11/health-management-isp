@@ -70,4 +70,8 @@ public class Intrebare {
 	public int numarRaspunsuri() {
 		return this.raspunsuri.size();
 	}
+	
+	public String getTextIntrebare() {
+		return this.textIntrebare;
+	}
 }

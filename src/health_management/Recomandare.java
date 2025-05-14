@@ -58,4 +58,8 @@ public class Recomandare {
 	public int getPragSuperior() {
 		return this.pragSuperior;
 	}
+	
+	public String getTextRecomandare() {
+		return this.textRecomandare;
+	}
 }
