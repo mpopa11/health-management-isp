@@ -31,7 +31,7 @@ public class Student extends Utilizator {
 		}
 		
 		System.out.println("--------------------------------------");
-		System.out.println("Doriti detalii suplimentare? \n[1] - Da \n[2] - Nu");
+		System.out.println("Doriti detalii suplimentare? \n1. - Da \n2. - Nu");
 		System.out.println("--------------------------------------");
 		int optiune = InputHandler.alegereActiuneMeniu(1, 2);
 		
@@ -85,7 +85,6 @@ public class Student extends Utilizator {
 		return scoruri;
 	}
 	
-	// ----------------------------- EXPERIMENTAL -----------------------------
 	public static void afisareEvolutie(ArrayList<Integer> scoruri) {
         if (scoruri == null || scoruri.size() == 0) {
             System.out.println("Nu exista scoruri de afisat.");
@@ -97,10 +96,9 @@ public class Student extends Utilizator {
             if (scor > max) max = scor;
         }
 
-        final int chartHeight = 10;  // number of rows in the chart
+        final int chartHeight = 10;
         System.out.println("Evolutia scorurilor:");
 
-        // Build chart row by row from top to bottom
         for (int i = chartHeight; i >= 1; i--) {
             int threshold = (int) Math.ceil((double) max * i / chartHeight);
             for (int scor : scoruri) {
@@ -113,7 +111,6 @@ public class Student extends Utilizator {
             System.out.println();
         }
 
-        // Print horizontal axis
         for (int i = 0; i < scoruri.size(); i++) {
             System.out.print("─────");
         }

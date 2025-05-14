@@ -98,7 +98,12 @@ public class InputHandler {
 		int choice = -1;
 		do {
 		String line = scanner.nextLine().trim();
-        choice = Integer.parseInt(line);
+		try {
+			choice = Integer.parseInt(line);
+		} catch (NumberFormatException e) {
+			choice = -1;
+		};
+        
         if (choice < lower || choice > upper) {
             System.out.println("Optiune invalida. Alege un număr intre " + lower + " si " + upper);
             choice = -1; 

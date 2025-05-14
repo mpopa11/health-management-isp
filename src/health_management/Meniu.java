@@ -45,8 +45,13 @@ public class Meniu {
                 switch (choice) {
                     case 1 -> {
 	                    	FormularRegistry.showFormulare();
-	                    	int id = InputHandler.alegereActiuneMeniu(1, FormularRegistry.getSize()) - 1;
-	                    	((Student) utilizatorCurent).completareFormular(id);
+	                    	int id = -1;
+	                    	if (FormularRegistry.getSize() > 0) {
+	                    		id = InputHandler.alegereActiuneMeniu(1, FormularRegistry.getSize()) - 1;
+		                    	System.out.println(id);
+		                    	((Student) utilizatorCurent).completareFormular(id);
+	                    	}
+	                    	
                     	}
                     case 2 -> {
                     	((Student)utilizatorCurent).afisareIstoricFormulare();
@@ -63,7 +68,7 @@ public class Meniu {
                 int choice = InputHandler.alegereActiuneMeniu(1, 4);
                 switch (choice) {
                     case 1 -> ((Consilier) utilizatorCurent).creareFormular(); 
-                    case 2 -> {FormularRegistry.showFormulare();}  
+                    case 2 -> {FormularRegistry.showFormulare();} // aici mai trebuie lucrat 
                     case 3 -> {}
                     case 4 -> utilizatorCurent = null;
                 }
