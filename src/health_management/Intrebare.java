@@ -74,4 +74,8 @@ public class Intrebare {
 	public String getTextIntrebare() {
 		return this.textIntrebare;
 	}
+	
+	public String getRaspuns(int index) {
+	    return raspunsuri.get(index);
+	}
 }

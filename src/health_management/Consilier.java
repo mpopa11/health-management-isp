@@ -47,30 +47,67 @@ public class Consilier extends Utilizator {
 	
 	public void vizualizareStatisticiFormular(int id) {
 		Map <Facultate, List<FormularCompletat>> formularePerFacultate = new HashMap<>();
-		
+		int numOfForms = 0;
 		for (Facultate facultate : FacultateRegistry.getAll()) {
 			if (facultate.getNumarStudenti() > 0) {
 				for (Student student : facultate.getStudenti()) {
 					if (student.formularCompletatSpecific(id).size() > 0) {
 						formularePerFacultate.put(facultate, new ArrayList<>(student.formularCompletatSpecific(id)));
+						numOfForms++;
 					}
 				}
 			}
 		}
 		
-		
-		 for (Map.Entry<Facultate, List<FormularCompletat>> entry
-		            : formularePerFacultate.entrySet()) {
-		        Facultate fac = entry.getKey();
-		        List<FormularCompletat> forms = entry.getValue();
+		if (numOfForms == 0) {
+			System.out.println("--------------------------------------");
+			System.out.println("Fomrularul nu a fost completat de catre niciun Student");
+			System.out.println("--------------------------------------");
+			return;
+		}
 
-		        System.out.println("Facultate: " + fac.getNume() +
-		                           "  (studenti cu formular: " + forms.size() + ")");
-		 }
-		
-		Formular formularAles = FormularRegistry.get(id);
+	    Formular formularAles = FormularRegistry.get(id);
+	    System.out.println("--------------------------------------");
+	    System.out.println("Titlu: " + formularAles.getTitlu());
+	    System.out.println("Formularul a fost completat de " 
+	        + numOfForms + " ori");
 
-		
-		
+	    List<Intrebare> intrebari = formularAles.getIntrebari();
+	    for (int q = 0; q < intrebari.size(); q++) {
+	        Intrebare intrebare = intrebari.get(q);
+	        System.out.println("\n " + (q + 1) + ": " 
+	            + intrebare.getTextIntrebare());
+
+	        for (int opt = 0; opt < intrebare.numarRaspunsuri(); opt++) {
+	            System.out.println(" "+ (opt + 1) + ": " 
+	                + intrebare.getRaspuns(opt));
+
+	            for (Map.Entry<Facultate, List<FormularCompletat>> entry 
+	                    : formularePerFacultate.entrySet()) {
+	                Facultate fac = entry.getKey();
+	                int count = 0;
+	                for (FormularCompletat fc : entry.getValue()) {
+	                    if (fc.getRaspunsuri().get(q).intValue() == opt) {
+	                        count++;
+	                    }
+	                }
+	                if (count > 0) {
+	                	System.out.println("    " + fac.getNume() + ": " + count);
+	                }
+	            }
+	        }
+	    }
+	    
+	    int suma = 0;
+	    for (List<FormularCompletat> list : formularePerFacultate.values()) {
+	        for (FormularCompletat fc : list) {
+	            suma += fc.getScor();
+	        }
+	    }
+	    float scorMediu = (float)suma / numOfForms;
+	    System.out.println("\nScorul mediu: " 
+	        + scorMediu + "/" + formularAles.calculareScorMaxim());
+	    System.out.println("--------------------------------------");
 	}
+
 }

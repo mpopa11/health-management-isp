@@ -19,7 +19,7 @@ public class FormularCompletat {
 
 	
 	public void show() {
-        System.out.println("FormularCompletat details:");
+        System.out.println("Detalii formular:");
         System.out.println("  idFormular: " + idFormular);
         System.out.println("  scor: " + scor);
         System.out.println("  timestamp: " + timestamp);
