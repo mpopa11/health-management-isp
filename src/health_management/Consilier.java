@@ -1,6 +1,9 @@
 package health_management;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Consilier extends Utilizator {
 
@@ -38,5 +41,22 @@ public class Consilier extends Utilizator {
 				case 4 -> formular.stergeRecomandare();
 				}
 		} while (answer != 5);
+	}
+	
+	public void vizualizareStatisticiFormular(int id) {
+		Map <Facultate, List<FormularCompletat>> formularePerFacultate = new HashMap<>();
+		
+		for (Facultate facultate : FacultateRegistry.getAll()) {
+			if (facultate.getNumarStudenti() > 0) {
+				formularePerFacultate.put(facultate, new ArrayList<>());
+			}
+		}
+		
+//		for (Facultate facultate : formularePerFacultate.keySet()) {
+//		    System.out.println(facultate.getNume());
+//		}
+		
+		
+		
 	}
 }

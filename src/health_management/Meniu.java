@@ -77,20 +77,18 @@ public class Meniu {
                     	FormularRegistry.showFormulareOfUser(utilizatorCurent.getUsername());
                     	if (FormularRegistry.getSizeFormulareUser(utilizatorCurent.getUsername()) > 0) {
                     		System.out.println("Alegeti un formular pentru detalii.\nIntoruceti 0 pentru a naviga inapoi");
-                    		int formChoice = InputHandler.alegereActiuneMeniu(0, FormularRegistry.getSize()) - 1;
+                    		int formChoice = InputHandler.alegereActiuneMeniu(0, FormularRegistry.getSize());
                     		
                     		if (formChoice == 0) {
                     			break;
                     		} else {
-                    			Set<Integer> keys = FormularRegistry.getFormularePersonale(utilizatorCurent.getUsername()).keySet();
-                        		System.out.println(keys);
-                        		
-                        		List<String> list = new ArrayList<>(keys);
+                        		List<Integer> keys = new ArrayList<>(FormularRegistry.getFormularePersonale(utilizatorCurent.getUsername()).keySet());
+                        		int id = keys.get(formChoice - 1);
+                        		((Consilier) utilizatorCurent).vizualizareStatisticiFormular(id);
                         		
                     		}
                     	}
-                    	
-                    	
+          
                     }
                     case 4 -> utilizatorCurent = null;
                 }
@@ -126,6 +124,8 @@ public class Meniu {
     	ConsilierRegistry.getOrCreate("Consilier", "Ana", "anaa", "Parola1.");
     	ConsilierRegistry.getOrCreate("Consilier", "Ana2", "ana", "Parola1.");
     	StudentRegistry.getOrCreate("Mihai","Mihai", "Mihai", "Parola1.");
+    	FacultateRegistry.getOrCreate("ACS").adaugareStudent(StudentRegistry.get("mihai"));
+    	
     }
     
     public void alegeFacultate() {

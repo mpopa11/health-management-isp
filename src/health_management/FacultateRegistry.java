@@ -19,5 +19,10 @@ public class FacultateRegistry {
         String key = nume.trim().toLowerCase();
         return facultati.computeIfAbsent(key, k -> new Facultate(nume.trim()));
     }
+    
+    public static Collection<Facultate> getAll() {
+        return Collections.unmodifiableCollection(facultati.values());
+    }
+
   
 }

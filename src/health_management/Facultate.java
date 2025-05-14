@@ -24,5 +24,8 @@ public class Facultate {
 	public int getNumarStudenti() {
 		return numarStudenti;
 	}
+	public String getNume() {
+		return this.nume;
+	}
 	
 }
