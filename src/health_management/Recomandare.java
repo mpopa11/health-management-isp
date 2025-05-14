@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class Recomandare {
 	private String textRecomandare;
-	private float pragInferior;
-	private float pragSuperior;
+	private int pragInferior;
+	private int pragSuperior;
 	
 	public Recomandare() {}
 	
 	public void creareRecomandare() {
 		Scanner scanner = InputHandler.getScanner();
-		Float pragInf = null;
-		Float pragSup = null;
+		Integer pragInf = null;
+		Integer pragSup = null;
 		
 		System.out.println("--------------------------------------");
 		System.out.println("Introduceti recomadare: ");
@@ -21,7 +21,7 @@ public class Recomandare {
         while (pragInf == null) {
             System.out.print("Introduceti pragul inferior: ");
             try {
-                pragInf = Float.parseFloat(scanner.nextLine());
+                pragInf = Integer.parseInt(scanner.nextLine());
                 this.pragInferior = pragInf;
             } catch (NumberFormatException e) {
                 System.out.println("Eroare: Format invalid!");
@@ -31,7 +31,7 @@ public class Recomandare {
         while (pragSup == null) {
             System.out.print("Introduceti pragul superior: ");
             try {
-                pragSup = Float.parseFloat(scanner.nextLine());
+                pragSup = Integer.parseInt(scanner.nextLine());
                 this.pragSuperior = pragSup;
             } catch (NumberFormatException e) {
                 System.out.println("Eroare: Format invalid!");
@@ -51,11 +51,11 @@ public class Recomandare {
 		System.out.println("--------------------------------------");
 	}
 	
-	public float getPragInferior() {
+	public int getPragInferior() {
 		return this.pragInferior;
 	}
 	
-	public float getPragSuperior() {
+	public int getPragSuperior() {
 		return this.pragSuperior;
 	}
 }

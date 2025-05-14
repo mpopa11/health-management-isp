@@ -11,8 +11,10 @@ public class Student extends Utilizator {
 	}
 	
 	public void completareFormular(int idFormular) {
-		ArrayList<Integer> raspunsuri = FormularRegistry.get(idFormular).completareFormular();
+		Formular formular = FormularRegistry.get(idFormular);
+		ArrayList<Integer> raspunsuri = formular.completareFormular();
 		int scor = FormularRegistry.get(idFormular).calculareScor(raspunsuri);
+		
 		
 		formulareCompletate.add(new FormularCompletat(idFormular, raspunsuri, scor));
 	}
