@@ -63,5 +63,64 @@ public class Student extends Utilizator {
 			
 		}
 	}
+	
+	public void afisareRecomandari() {
+		System.out.println("Recomandari:");
+		for (FormularCompletat formular : formulareCompletate) {
+			
+			ArrayList<Recomandare> recomandari = FormularRegistry.get(formular.getIdFormular()).getRecomandari();
+			for (Recomandare recomandare : recomandari) {
+				if (recomandare.getPragInferior() <= formular.getScor() && formular.getScor() <= recomandare.getPragSuperior()) {
+					recomandare.afisare();
+				}
+			}
+		}
+	}
+	
+	public ArrayList<Integer> getScoruri() {
+		ArrayList<Integer> scoruri = new ArrayList<>();
+		for (FormularCompletat formular : formulareCompletate) {
+			scoruri.add((int) formular.getScor());
+		}
+		return scoruri;
+	}
+	
+	// ----------------------------- EXPERIMENTAL -----------------------------
+	public static void afisareEvolutie(ArrayList<Integer> scoruri) {
+        if (scoruri == null || scoruri.size() == 0) {
+            System.out.println("Nu exista scoruri de afisat.");
+            return;
+        }
+
+        int max = Integer.MIN_VALUE;
+        for (int scor : scoruri) {
+            if (scor > max) max = scor;
+        }
+
+        final int chartHeight = 10;  // number of rows in the chart
+        System.out.println("Evolutia scorurilor:");
+
+        // Build chart row by row from top to bottom
+        for (int i = chartHeight; i >= 1; i--) {
+            int threshold = (int) Math.ceil((double) max * i / chartHeight);
+            for (int scor : scoruri) {
+                if (scor >= threshold) {
+                    System.out.print("  █  ");
+                } else {
+                    System.out.print("     ");
+                }
+            }
+            System.out.println();
+        }
+
+        // Print horizontal axis
+        for (int i = 0; i < scoruri.size(); i++) {
+            System.out.print("─────");
+        }
+        System.out.println();
+
+        System.out.println();
+    }
+
 }
 
