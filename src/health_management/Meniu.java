@@ -51,8 +51,10 @@ public class Meniu {
                     case 2 -> {
                     	((Student)utilizatorCurent).afisareIstoricFormulare();
                     } 
-                    case 3 -> {}
-                    case 4 -> {}
+                    case 3 -> {
+                    	((Student) utilizatorCurent).afisareEvolutie(((Student) utilizatorCurent).getScoruri());
+                    }
+                    case 4 -> {((Student) utilizatorCurent).afisareRecomandari();}
                     case 5-> {utilizatorCurent = null;}
                 }
             }
@@ -61,7 +63,7 @@ public class Meniu {
                 int choice = InputHandler.alegereActiuneMeniu(1, 4);
                 switch (choice) {
                     case 1 -> ((Consilier) utilizatorCurent).creareFormular(); 
-                    case 2 -> {}  
+                    case 2 -> {FormularRegistry.showFormulare();}  
                     case 3 -> {}
                     case 4 -> utilizatorCurent = null;
                 }

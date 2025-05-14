@@ -117,6 +117,10 @@ public class Formular {
 		return this.intrebari;
 	}
 	
+	public ArrayList<Recomandare> getRecomandari() {
+		return this.recomandari;
+	}
+	
 	public String getAutor() {
 		return this.autor;
 	}
