@@ -28,4 +28,8 @@ public class Facultate {
 		return this.nume;
 	}
 	
+	public Set<Student> getStudenti(){
+		return this.studenti;
+	}
+	
 }

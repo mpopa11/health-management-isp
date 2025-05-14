@@ -50,14 +50,26 @@ public class Consilier extends Utilizator {
 		
 		for (Facultate facultate : FacultateRegistry.getAll()) {
 			if (facultate.getNumarStudenti() > 0) {
-				formularePerFacultate.put(facultate, new ArrayList<>());
+				for (Student student : facultate.getStudenti()) {
+					if (student.formularCompletatSpecific(id).size() > 0) {
+						formularePerFacultate.put(facultate, new ArrayList<>(student.formularCompletatSpecific(id)));
+					}
+				}
 			}
 		}
 		
-//		for (Facultate facultate : formularePerFacultate.keySet()) {
-//		    System.out.println(facultate.getNume());
-//		}
 		
+		 for (Map.Entry<Facultate, List<FormularCompletat>> entry
+		            : formularePerFacultate.entrySet()) {
+		        Facultate fac = entry.getKey();
+		        List<FormularCompletat> forms = entry.getValue();
+
+		        System.out.println("Facultate: " + fac.getNume() +
+		                           "  (studenti cu formular: " + forms.size() + ")");
+		 }
+		
+		Formular formularAles = FormularRegistry.get(id);
+
 		
 		
 	}

@@ -140,7 +140,9 @@ public class Meniu {
     	ConsilierRegistry.getOrCreate("Consilier", "Ana", "anaa", "Parola1.");
     	ConsilierRegistry.getOrCreate("Consilier", "Ana2", "ana", "Parola1.");
     	StudentRegistry.getOrCreate("Mihai","Mihai", "Mihai", "Parola1.");
+    	StudentRegistry.getOrCreate("Mihai","Robert", "Robert", "Parola1.");
     	FacultateRegistry.getOrCreate("ACS").adaugareStudent(StudentRegistry.get("mihai"));
+    	FacultateRegistry.getOrCreate("ETTI").adaugareStudent(StudentRegistry.get("robert"));
     	
     }
     

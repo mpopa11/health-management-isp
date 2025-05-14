@@ -120,6 +120,18 @@ public class Student extends Utilizator {
 
         System.out.println();
     }
+	
+	public ArrayList<FormularCompletat> formularCompletatSpecific(int idFormular) {
+		ArrayList<FormularCompletat> formulareSpecifice = new ArrayList<>();
+		
+		for (FormularCompletat fc : formulareCompletate) {
+			if (fc.getIdFormular() == idFormular) {
+				formulareSpecifice.add(fc);
+			}
+		}
+		
+		return formulareSpecifice;
+	}
 
 }
 
