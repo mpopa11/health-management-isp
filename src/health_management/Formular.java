@@ -102,6 +102,13 @@ public class Formular {
 		int scor = this.calculareScor(raspunsuri);
 		System.out.println("SCOR: " + scor + "/" + this.calculareScorMaxim());
 		
+		System.out.println("Recomandari:");
+		for (Recomandare recomandare : this.recomandari) {
+			if (recomandare.getPragInferior() <= scor && recomandare.getPragSuperior() >= scor) {
+				recomandare.afisare();
+			}
+		}
+		
 		return raspunsuri;
 	}
 	
