@@ -31,6 +31,38 @@ public class FormularRegistry {
 	        }
 	    }
 	 
+	 public static Map<Integer, Formular> getFormularePersonale(String username) {
+		 Map<Integer, Formular> formularePersonale = new HashMap<>();
+		 for (Formular formular : formulare.values()) {
+		 		if(username.equals(formular.getAutor())) {
+		 			formularePersonale.put(formular.getId(), formular);
+		 		}
+		 	}
+		 
+		 return formularePersonale;
+	 }
+	 
+	 public static void showFormulareOfUser(String username) {
+		 	Map<Integer, Formular> formularePersonale = getFormularePersonale(username);
+		 	
+	        if (formularePersonale.isEmpty()) {
+	            System.out.println("Nu exista formulare disponibile.");
+	            return;
+	        }
+
+	        System.out.println("Formulare:");
+	        int i = 1;
+	        for (Formular formular : formularePersonale.values()) {
+	            System.out.println(i
+	                + ". " + formular.getTitlu());
+	            i++;
+	        }
+	    }
+	 
+	 public static int getSizeFormulareUser(String username) {
+		 return getFormularePersonale(username).size();
+	 }
+	 
 	 public static int getSize() {
 		 return formulare.size();
 	 }

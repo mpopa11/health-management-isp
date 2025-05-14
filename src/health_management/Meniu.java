@@ -1,5 +1,9 @@
 package health_management;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 public class Meniu {
     private static Utilizator utilizatorCurent = null;
 
@@ -68,8 +72,26 @@ public class Meniu {
                 int choice = InputHandler.alegereActiuneMeniu(1, 4);
                 switch (choice) {
                     case 1 -> ((Consilier) utilizatorCurent).creareFormular(); 
-                    case 2 -> {FormularRegistry.showFormulare();} // aici mai trebuie lucrat 
-                    case 3 -> {}
+                    case 2 -> {FormularRegistry.showFormulareOfUser(utilizatorCurent.getUsername());}
+                    case 3 -> {
+                    	FormularRegistry.showFormulareOfUser(utilizatorCurent.getUsername());
+                    	if (FormularRegistry.getSizeFormulareUser(utilizatorCurent.getUsername()) > 0) {
+                    		System.out.println("Alegeti un formular pentru detalii.\nIntoruceti 0 pentru a naviga inapoi");
+                    		int formChoice = InputHandler.alegereActiuneMeniu(0, FormularRegistry.getSize()) - 1;
+                    		
+                    		if (formChoice == 0) {
+                    			break;
+                    		} else {
+                    			Set<Integer> keys = FormularRegistry.getFormularePersonale(utilizatorCurent.getUsername()).keySet();
+                        		System.out.println(keys);
+                        		
+                        		List<String> list = new ArrayList<>(keys);
+                        		
+                    		}
+                    	}
+                    	
+                    	
+                    }
                     case 4 -> utilizatorCurent = null;
                 }
             }
@@ -102,6 +124,7 @@ public class Meniu {
     
     public static void init() {
     	ConsilierRegistry.getOrCreate("Consilier", "Ana", "anaa", "Parola1.");
+    	ConsilierRegistry.getOrCreate("Consilier", "Ana2", "ana", "Parola1.");
     	StudentRegistry.getOrCreate("Mihai","Mihai", "Mihai", "Parola1.");
     }
     
