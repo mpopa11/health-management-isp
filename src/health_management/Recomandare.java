@@ -67,12 +67,10 @@ public class Recomandare {
 	        this.textRecomandare = textRecomandare;
 	    }
 
-    /** for tests to inject the lower bound */
     public void setPragInferior(int pragInferior) {
         this.pragInferior = pragInferior;
     }
 
-    /** for tests to inject the upper bound */
     public void setPragSuperior(int pragSuperior) {
         this.pragSuperior = pragSuperior;
     }

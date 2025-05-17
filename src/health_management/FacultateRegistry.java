@@ -24,5 +24,15 @@ public class FacultateRegistry {
         return Collections.unmodifiableCollection(facultati.values());
     }
 
-  
+    public static void clear() {
+        facultati.clear();
+    }
+    
+    public static Facultate get(String nume) {
+        if (nume == null) return null;
+        String key = nume.trim().toLowerCase();
+        return facultati.get(key);
+    }
+
+
 }

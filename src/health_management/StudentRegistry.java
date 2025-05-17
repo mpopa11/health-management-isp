@@ -24,4 +24,9 @@ public class StudentRegistry {
 	public static int getNumarStudenti() {
 		return studenti.size();
 	}
+	
+	public static void clear() {
+	    studenti.clear();
+	}
+
 }

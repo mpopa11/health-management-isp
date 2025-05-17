@@ -1,5 +1,6 @@
 package health_management;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -144,11 +145,9 @@ public class Meniu {
     	FacultateRegistry.getOrCreate("ACS").adaugareStudent(StudentRegistry.get("mihai"));
     	FacultateRegistry.getOrCreate("ETTI").adaugareStudent(StudentRegistry.get("robert"));
     	
-    	// 1) Create the form “head”:
     	Formular f = new Formular("anaa");
     	f.setTitlu("Chestionar de Test");
 
-    	// 2) Populate questions:
     	Intrebare q1 = new Intrebare();
     	q1.setTextIntrebare("Întrebare 1?");
     	q1.setRaspunsuri(new ArrayList<>(List.of("Da", "Nu")));
@@ -161,7 +160,6 @@ public class Meniu {
     	q2.setPuncte (new ArrayList<>(List.of(2, 1)));
     	f.getIntrebari().add(q2);
 
-    	// 3) Populate recommendations:
     	Recomandare r1 = new Recomandare();
     	r1.setTextRecomandare("Recomandare X");
     	r1.setPragInferior(0);

@@ -53,7 +53,7 @@ public class Consilier extends Utilizator {
 				for (Student student : facultate.getStudenti()) {
 					if (student.formularCompletatSpecific(id).size() > 0) {
 						formularePerFacultate.put(facultate, new ArrayList<>(student.formularCompletatSpecific(id)));
-						numOfForms++;
+						numOfForms += student.formularCompletatSpecific(id).size();
 					}
 				}
 			}
