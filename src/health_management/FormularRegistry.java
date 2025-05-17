@@ -66,4 +66,12 @@ public class FormularRegistry {
 	 public static int getSize() {
 		 return formulare.size();
 	 }
+	 
+    public static void registerFormular(Formular f) {
+        formulare.put(f.getId(), f);
+    }
+
+    public static void clear() {
+        formulare.clear();
+    }
 }

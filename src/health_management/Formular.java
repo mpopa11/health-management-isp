@@ -157,6 +157,9 @@ public class Formular {
 	public String getTitlu() {
 		return this.titlu;
 	}
+	public void setTitlu(String titlu) {
+		this.titlu = titlu;
+	}
 	
 	public ArrayList<Intrebare> getIntrebari() {
 		return this.intrebari;

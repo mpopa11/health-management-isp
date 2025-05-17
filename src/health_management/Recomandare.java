@@ -62,4 +62,18 @@ public class Recomandare {
 	public String getTextRecomandare() {
 		return this.textRecomandare;
 	}
+	
+	 public void setTextRecomandare(String textRecomandare) {
+	        this.textRecomandare = textRecomandare;
+	    }
+
+    /** for tests to inject the lower bound */
+    public void setPragInferior(int pragInferior) {
+        this.pragInferior = pragInferior;
+    }
+
+    /** for tests to inject the upper bound */
+    public void setPragSuperior(int pragSuperior) {
+        this.pragSuperior = pragSuperior;
+    }
 }

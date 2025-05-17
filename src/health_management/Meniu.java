@@ -144,6 +144,31 @@ public class Meniu {
     	FacultateRegistry.getOrCreate("ACS").adaugareStudent(StudentRegistry.get("mihai"));
     	FacultateRegistry.getOrCreate("ETTI").adaugareStudent(StudentRegistry.get("robert"));
     	
+    	// 1) Create the form “head”:
+    	Formular f = new Formular("anaa");
+    	f.setTitlu("Chestionar de Test");
+
+    	// 2) Populate questions:
+    	Intrebare q1 = new Intrebare();
+    	q1.setTextIntrebare("Întrebare 1?");
+    	q1.setRaspunsuri(new ArrayList<>(List.of("Da", "Nu")));
+    	q1.setPuncte (new ArrayList<>(List.of(1, 0)));
+    	f.getIntrebari().add(q1);
+
+    	Intrebare q2 = new Intrebare();
+    	q2.setTextIntrebare("Întrebare 2?");
+    	q2.setRaspunsuri(new ArrayList<>(List.of("Opțiunea A", "Opțiunea B")));
+    	q2.setPuncte (new ArrayList<>(List.of(2, 1)));
+    	f.getIntrebari().add(q2);
+
+    	// 3) Populate recommendations:
+    	Recomandare r1 = new Recomandare();
+    	r1.setTextRecomandare("Recomandare X");
+    	r1.setPragInferior(0);
+    	r1.setPragSuperior(2);
+    	f.getRecomandari().add(r1);
+
+    	 FormularRegistry.registerFormular(f);
     }
     
     public void alegeFacultate() {

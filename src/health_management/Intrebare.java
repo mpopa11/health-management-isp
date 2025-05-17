@@ -78,4 +78,28 @@ public class Intrebare {
 	public String getRaspuns(int index) {
 	    return raspunsuri.get(index);
 	}
+	
+	public void setTextIntrebare(String textIntrebare) {
+        this.textIntrebare = textIntrebare;
+    }
+
+    /** for tests to inject whole list of answers */
+    public void setRaspunsuri(ArrayList<String> raspunsuri) {
+        this.raspunsuri = new ArrayList<>(raspunsuri);
+    }
+
+    /** for tests to inject corresponding points */
+    public void setPuncte(ArrayList<Integer> puncte) {
+        this.puncte = new ArrayList<>(puncte);
+    }
+
+    /** optional: expose all answers if you need them in assertions */
+    public ArrayList<String> getRaspunsuri() {
+        return new ArrayList<>(this.raspunsuri);
+    }
+
+    /** optional: expose all point values if you need them in assertions */
+    public ArrayList<Integer> getPuncte() {
+        return new ArrayList<>(this.puncte);
+    }
 }
