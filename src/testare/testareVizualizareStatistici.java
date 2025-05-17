@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import health_management.*;
 
-class testareVizualizariStatistici {
+class TestareVizualizareStatistici {
 
     private final InputStream  originalIn  = System.in;
     private final PrintStream originalOut = System.out;
