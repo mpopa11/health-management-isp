@@ -16,15 +16,20 @@ public class Recomandare {
 		
 		System.out.println("--------------------------------------");
 		System.out.println("Introduceti recomadare: ");
-		this.textRecomandare = scanner.nextLine();
 		
-        while (pragInf == null) {
+		do {
+			this.textRecomandare = scanner.nextLine();
+			if (this.textRecomandare.isBlank()) System.out.println("\nATENTIE: Recomandarea nu trebuie sa fie un camp gol!\n");
+		} while (this.textRecomandare.isBlank());
+		
+        while (pragInf == null || pragInf < 0) {
             System.out.print("Introduceti pragul inferior: ");
             try {
                 pragInf = Integer.parseInt(scanner.nextLine());
-                this.pragInferior = pragInf;
+                if (pragInf >= 0 ) this.pragInferior = pragInf;
+                else throw new NumberFormatException();
             } catch (NumberFormatException e) {
-                System.out.println("Eroare: Format invalid!");
+            	System.out.println("\nATENTIE: Trebuie sa introduceti un numar intreg si pozitiv!\n");
             }
         }
         
@@ -34,7 +39,7 @@ public class Recomandare {
                 pragSup = Integer.parseInt(scanner.nextLine());
                 this.pragSuperior = pragSup;
             } catch (NumberFormatException e) {
-                System.out.println("Eroare: Format invalid!");
+            	System.out.println("\nATENTIE: Trebuie sa introduceti un numar intreg!\n");
             }
             
             if (pragSup <= this.pragInferior) {

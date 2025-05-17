@@ -24,9 +24,14 @@ public class Formular {
 		Scanner scanner = InputHandler.getScanner();
 		int menuAnswer = 0;
 		
-		System.out.println("--------------------------------------");
-		System.out.print("Introduceti titlul formularului: ");
-		this.titlu = scanner.nextLine();
+		do {
+			System.out.println("--------------------------------------");
+			System.out.print("Introduceti titlul formularului: ");
+			this.titlu = scanner.nextLine();
+			
+			if (this.titlu.isBlank()) System.out.println("\nATENTIE: Titlul este un camp obligatoriu!\n");
+			
+		} while (this.titlu.isBlank());
 		
 		while (menuAnswer != 3) {
 			this.showMeniuFormular();
@@ -52,7 +57,7 @@ public class Formular {
         System.out.println("Alegeti o optiune:");
         System.out.println("1. Adauga intrebari");
         System.out.println("2. Adauga recomandari");
-        System.out.println("3. Iesi");
+        System.out.println("3. Exit");
         System.out.println("--------------------------------------");
 	}
 	

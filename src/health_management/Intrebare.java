@@ -18,23 +18,36 @@ public class Intrebare {
 	public void creareIntrebare() {
 		Scanner scanner = InputHandler.getScanner();
 		String ans;
-
-		System.out.println("--------------------------------------");
-		System.out.println("Introduceti intrebarea: ");
-		this.textIntrebare = scanner.nextLine();		
 		
 		do {
-			System.out.print("Introduceti raspuns: ");
-			this.raspunsuri.add(scanner.nextLine());
+			System.out.println("--------------------------------------");
+			System.out.println("Introduceti intrebarea: ");
+			this.textIntrebare = scanner.nextLine();
 			
+			if (this.textIntrebare.isBlank()) System.out.println("\nATENTIE: Acest este un camp obligatoriu!\n");
+		} while (this.textIntrebare.isBlank());
+		
+		
+		do {
+			
+			String raspuns;
+			do {
+				System.out.print("Introduceti raspuns: ");
+				raspuns = scanner.nextLine();
+				if (raspuns.isBlank()) System.out.println("\nATENTIE: Raspunsul nu trebuie sa fie un camp gol!\n");
+			} while (raspuns.isBlank());
+			
+			this.raspunsuri.add(raspuns);
+				
 			Integer punctaj = null;
-	        while (punctaj == null) {
+	        while (punctaj == null || punctaj < 0) {
 	            System.out.print("Introduceti punctele asociate: ");
 	            try {
 	                punctaj = Integer.parseInt(scanner.nextLine());
-	                this.puncte.add(punctaj);
+	                if (punctaj >= 0) this.puncte.add(punctaj);
+	                else throw new NumberFormatException();
 	            } catch (NumberFormatException e) {
-	                System.out.println("Eroare: trebuie sa introduceti un numar intreg!");
+	                System.out.println("\nATENTIE: Trebuie sa introduceti un numar intreg si pozitiv!\n");
 	            }
 	        }
 			
