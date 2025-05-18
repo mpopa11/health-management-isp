@@ -87,7 +87,7 @@ public class Student extends Utilizator {
 		return scoruri;
 	}
 	
-	public static void afisareEvolutie(ArrayList<Integer> scoruri) {
+	public void afisareEvolutie(ArrayList<Integer> scoruri) {
         if (scoruri == null || scoruri.size() == 0) {
             System.out.println("Nu exista scoruri de afisat.");
             return;

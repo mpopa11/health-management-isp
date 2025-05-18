@@ -1,4 +1,4 @@
-package health_management;
+ package health_management;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -115,5 +115,4 @@ public class InputHandler {
 	public static Scanner getScanner() {
 		return scanner;
 	}
-	
 }

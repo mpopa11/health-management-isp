@@ -3,7 +3,6 @@ package health_management;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class Meniu {
     private static Utilizator utilizatorCurent = null;
@@ -166,7 +165,7 @@ public class Meniu {
     	r1.setPragSuperior(2);
     	f.getRecomandari().add(r1);
 
-    	 FormularRegistry.registerFormular(f);
+    	FormularRegistry.registerFormular(f);
     }
     
     public void alegeFacultate() {
@@ -201,7 +200,7 @@ public class Meniu {
     public void showMeniuConsilier() {
         System.out.println("--------------------------------------");
         System.out.println("1. Creaza formular");
-        System.out.println("2. Vizualizare Formulare");
+        System.out.println("2. Modificare Formulare");
         System.out.println("3. Statistici");
         System.out.println("4. Log out");
         System.out.println("--------------------------------------");

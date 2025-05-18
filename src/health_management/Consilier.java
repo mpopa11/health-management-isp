@@ -61,7 +61,7 @@ public class Consilier extends Utilizator {
 		
 		if (numOfForms == 0) {
 			System.out.println("--------------------------------------");
-			System.out.println("Fomrularul nu a fost completat de catre niciun Student");
+			System.out.println("Formularul nu a fost completat de catre niciun Student");
 			System.out.println("--------------------------------------");
 			return;
 		}

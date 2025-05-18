@@ -8,8 +8,6 @@ public class Intrebare {
 	private ArrayList<String> raspunsuri;
 	private ArrayList<Integer> puncte;
 	
-	// puncteRaspuns
-	
 	public Intrebare() {
 		this.raspunsuri = new ArrayList<String>();
 		this.puncte = new ArrayList<Integer>();

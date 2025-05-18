@@ -24,4 +24,8 @@ public class ConsilierRegistry {
 	public static int getNumarConsilieri() {
 		return consilieri.size();
 	}
+	
+	public static void clear() {
+		consilieri.clear();
+	}
 }
