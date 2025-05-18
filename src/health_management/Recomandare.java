@@ -39,10 +39,10 @@ public class Recomandare {
                 pragSup = Integer.parseInt(scanner.nextLine());
                 this.pragSuperior = pragSup;
             } catch (NumberFormatException e) {
-            	System.out.println("\nATENTIE: Trebuie sa introduceti un numar intreg!\n");
+            	System.out.println("\nATENTIE: Trebuie sa introduceti un numar intreg si pozitiv!\n");
             }
             
-            if (pragSup <= this.pragInferior) {
+            if (pragSup != null && pragSup <= this.pragInferior) {
             	System.out.println("Pragul superior trebuie sa fie mai mare decat cel inferior!");
             	pragSup = null;
             }

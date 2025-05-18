@@ -42,7 +42,6 @@ public class InputHandler {
 	    }
 	}
 
-
 	public static Utilizator authenticate() {
         Utilizator user;
         String username;
@@ -115,4 +114,9 @@ public class InputHandler {
 	public static Scanner getScanner() {
 		return scanner;
 	}
+	
+    public static void resetScanner() {
+        scanner = new Scanner(System.in);
+    }
+	
 }

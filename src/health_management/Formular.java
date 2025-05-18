@@ -33,7 +33,7 @@ public class Formular {
 			
 		} while (this.titlu.isBlank());
 		
-		while (menuAnswer != 3) {
+		while (menuAnswer != 3 || this.intrebari.isEmpty()) {
 			this.showMeniuFormular();
 			menuAnswer = InputHandler.alegereActiuneMeniu(1, 3);
 			
@@ -41,6 +41,7 @@ public class Formular {
 				case 1 -> this.adaugaIntrebare();
 				case 2 -> this.adaugaRecomandare();
 			}
+			if (this.intrebari.isEmpty()) System.out.println("\nATENTIE: Adaugati cel putin o intrebare!\n");
 		}
 		System.out.println("--------------------------------------");
 	}
