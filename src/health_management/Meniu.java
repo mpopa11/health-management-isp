@@ -131,8 +131,13 @@ public class Meniu {
     
     public void showMeniuConsilier() {
         System.out.println("--------------------------------------");
+<<<<<<< Updated upstream
         System.out.println("1. Creaza formular");
         System.out.println("2. Vizualizare Formulare");
+=======
+        System.out.println("1. Creeaza formular");
+        System.out.println("2. Modificare Formulare");
+>>>>>>> Stashed changes
         System.out.println("3. Statistici");
         System.out.println("4. Log out");
         System.out.println("--------------------------------------");
